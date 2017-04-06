@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sweet Time</title>
+    <style>
+      body {
+        background-color: #000;
+        margin: 0;
+      }
+      #container {
+        font-family: Arial, "sans-serif";
+        background-color: #000;
+        color: #fff;
+      }
+      #timer {
+        padding: 50px;
+        font-size: 25em;
+        text-align: center;
+      }
+      .reset {
+        display: inline-block;
+        width: 30%;
+        padding: 20px;
+        margin: 0;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+      .small {
+        width: 4%;
+      }
+      .red {
+        color: #f33;
+      }
+      .red-bg {
+        background-color: #511 !important;
+      }
+      .primed {
+        background-color: #663;
+      }
+      .active {
+        background-color: #363;
+      }
+
+
+    </style>
+
+  </head>
+  <body>
+    <div id="container">
+      <div id="timer">
+        :00
+      </div>
+      <br/>
+      <div class="reset small" onclick="zero()">
+        c
+      </div>
+      <div class="reset" id="sixty" onclick="sixty()">
+        60s
+      </div>
+      <div class="reset" id="thirty" onclick="thirty()">
+        30s
+      </div>
+      <div class="reset small" onclick="full()">
+        f
+      </div>
+    </div>
+    <script src="sweet_time.js"></script>
+  </body>
+</html>
