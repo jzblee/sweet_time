@@ -7,27 +7,45 @@
         background-color: #000;
         margin: 0;
       }
+      #sidebar {
+        font-family: Arial, "sans-serif";
+        float: left;
+        color: #fff;
+        width: 13vw;
+        padding: 1vw;
+      }
       #container {
+        float: left;
+        clear: right;
         font-family: Arial, "sans-serif";
         background-color: #000;
         color: #fff;
         height: 100vh;
-        width: 100vw;
+        width: 85vw;
         text-align: center;
       }
       #timer {
         padding: 50px;
         font-size: 25em;
         text-align: center;
-        height: 70vh;
+        height: 100vh;
+      }
+      #minitimer{
+        text-align: center;
+        margin-top: 20vh;
+        font-size: 3em;
+        width: 100%;
       }
       .reset {
-        display: inline-block;
-        width: 20%;
+        display: inline-block; 
         padding: 20px;
-        margin: 0;
+        margin: 2px 0;
         text-align: center;
         border: 1px solid #ccc;
+        width: 70%;
+      }
+      .medium {
+        width: 20%;
       }
       .small {
         width: 4%;
@@ -50,27 +68,15 @@
 
   </head>
   <body>
+    <div id="sidebar">
+      <div id="minitimer">0:00</div>
+      <div class="reset" onclick="zero()">clear</div>
+      <div class="reset timer" id="timer_120" onclick="primeOrStart(120)">120s</div>
+      <div class="reset timer" id="timer_60" onclick="primeOrStart(60)">60s</div>
+      <div class="reset timer" id="timer_30" onclick="primeOrStart(30)">30s</div>
+    </div>
     <div id="container">
-      <div id="timer">
-      </div>
-      <br/>
-      <div id="buttons">
-        <div class="reset small" onclick="zero()">
-          c
-        </div>
-        <div class="reset timer" id="timer_120" onclick="primeOrStart(120)">
-          120s
-        </div>
-        <div class="reset timer" id="timer_60" onclick="primeOrStart(60)">
-          60s
-        </div>
-        <div class="reset timer" id="timer_30" onclick="primeOrStart(30)">
-          30s
-        </div>
-        <div class="reset small" onclick="full()">
-          f
-        </div>
-      </div>
+      <div id="timer"></div>
     </div>
     <script src="sweet_time.js"></script>
   </body>

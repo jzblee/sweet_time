@@ -1,6 +1,7 @@
 var second = 0;
 var t;
 var timer_el = document.getElementById('timer');
+var minitimer_el = document.getElementById('minitimer');
 
 zero();
 
@@ -32,11 +33,13 @@ function print_time() {
     else str += second % 60;
     if (second < 10) str = '<span class="red">' + str + '</span>';
     timer_el.innerHTML = str;
+    minitimer_el.innerHTML = str;
 }
 
 function zero() {
     clear_();
     timer_el.innerHTML = '0:00';
+    minitimer_el.innerHTML = '0:00';
     second = 0;
 }
 
