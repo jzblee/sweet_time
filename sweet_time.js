@@ -1,31 +1,18 @@
 var second = 0;
 var t;
 var timer_el = document.getElementById('timer');
-function sixty() {
+
+zero();
+
+function primeOrStart(amt) {
     clear_();
-    timer_el.innerHTML = ':60';
-    if (second !== 60) {
-        document.getElementById('sixty').className += ' primed';
-        second = 60;
-    }
-    else {
-        document.getElementById('sixty').className += ' active';
-        second -= 1;
+    if (second !== amt) {
+        document.getElementById('timer_' + amt).className += ' primed';
+        second = amt;
         print_time();
-        timer();
-    }
-
-}
-
-function thirty() {
-    clear_();
-    timer_el.innerHTML = ':30';
-    if (second !== 30) {
-        document.getElementById('thirty').className += ' primed';
-        second = 30;
     }
     else {
-        document.getElementById('thirty').className += ' active';
+        document.getElementById('timer_' + amt).className += ' active';
         second -= 1;
         print_time();
         timer();
@@ -40,22 +27,24 @@ function dec() {
 }
 
 function print_time() {
-    var str = second.toString();
-    if (second < 10) str = '0' + str;
-    str = ':' + str;
+    var str = Math.floor(second / 60).toString() + ':';
+    if (second % 60 < 10) str += '0' + second % 60;
+    else str += second % 60;
     if (second < 10) str = '<span class="red">' + str + '</span>';
     timer_el.innerHTML = str;
 }
 
 function zero() {
     clear_();
-    timer_el.innerHTML = ':00';
+    timer_el.innerHTML = '0:00';
     second = 0;
 }
 
 function clear_() {
-    document.getElementById('thirty').className = 'reset';
-    document.getElementById('sixty').className = 'reset';
+    var timers = document.getElementsByClassName('timer');
+    for (var i = 0; i < timers.length; i++) {
+        timers[i].className = 'reset timer';
+    }
     clearTimeout(t);
     document.getElementById('container').className = '';
 }
